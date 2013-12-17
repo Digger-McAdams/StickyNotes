@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+		<title>Calendar</title>
+		<link rel="stylesheet" href="{% static "css/foundation.css" %}"/>
+		<link rel="stylesheet" href="{% static "css/foundation.min.css" %}"/>
+		<link rel="stylesheet" href="{% static "css/normalize.css" %}"/>
+	</head>
+	<body>
+		<center><h1>{{month}}-{{year}}</h1></center>
+		<div>
+			<table width="100%">
+				<thead>
+					<th><center>Sun</center></th>
+					<th><center>Mon</center></th>
+					<th><center>Tue</center></th>
+					<th><center>Wed</center></th>
+					<th><center>Thu</center></th>
+					<th><center>Fri</center></th>
+					<th><center>Sat</center></th>
+				</thead>	
+				<tbody>
+					{% for week in month_days %}
+						<tr>
+						{% for day in week %}
+							<td width="70" height="70">{{day}}</td>
+						{% endfor %}
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
