@@ -1,37 +1,41 @@
 {% extends 'Stickynotes/base.html' %}
 {% block calendar_block %}
 	<div id="calendar">
-		<center><h1>{{month}}-{{year}}</h1></center>
-		<table width="90%">
-			<thead>
-				<th>Sun</th>
-				<th>Mon</th>
-				<th>Tue</th>
-				<th>Wed</th>
-				<th>Thu</th>
-				<th>Fri</th>
-				<th>Sat</th>
-			</thead>	
-			<tbody>
-				{% for week in month_days %}
-					<tr>
-					{% for day in week %}
+		<div id="calheader">
+			<center><h1>{{month}}-{{year}}</h1></center>
+		</div>
+		<div id="calendar_month">
+			<table width="90%">
+				<thead>
+					<th>Sun</th>
+					<th>Mon</th>
+					<th>Tue</th>
+					<th>Wed</th>
+					<th>Thu</th>
+					<th>Fri</th>
+					<th>Sat</th>
+				</thead>	
+				<tbody>
+					{% for week in month_days %}
+						<tr>
+						{% for day in week %}
 						
-						<td class="{%if day == 18 %}
-								test date
-							   {% elif day == 0 %}
-								empty
-							   {% else %}
-								date
-							   {% endif %}">
-							{% if day != 0 %}
-								{{day}}
-							{% endif %}
-						</td>
+							<td class="{%if day == 18 %}
+									test date
+								   {% elif day == 0 %}
+									empty
+								   {% else %}
+									date
+								   {% endif %}">
+								{% if day != 0 %}
+									{{day}}
+								{% endif %}
+							</td>
+						{% endfor %}
+						</tr>
 					{% endfor %}
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
+				</tbody>
+			</table>
+		</div>
 	</div>
 {% endblock %}
