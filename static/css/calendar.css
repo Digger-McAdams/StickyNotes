@@ -1,0 +1,33 @@
+table
+{
+	margin-left:5%;
+	margin-right:5%;
+	border-collapse:separate;
+	border-spacing:10px;	
+	table-layout:fixed;
+	border-color:black;
+}
+th
+{
+	border: 1px solid black;
+}
+.date
+{
+
+	height:162px;
+	border:1px solid black;
+	vertical-align:top;
+}
+.test
+{
+	color:red;
+	padding:-10px;
+	background-color:yellow;
+}
+.empty
+{
+		
+}
+#calendar
+{
+}	
