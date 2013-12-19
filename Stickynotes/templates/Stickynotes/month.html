@@ -2,7 +2,12 @@
 {% block calendar_block %}
 	<div id="calendar">
 		<div id="calheader">
-			<center>{{month}}-{{year}}</center>
+			<center>	
+				<a href="#" class="button">Prev</a>
+				{{month}}-{{year}}
+				<a href="#" class="button">Next</a>
+			</center>
+			
 		</div>
 		<div id="calendar_month">
 			<table width="90%">
@@ -20,7 +25,7 @@
 						<tr>
 						{% for day in week %}
 						
-							<td class="{%if day == 18 %}
+							<td class="{%if day == 19 %}
 									test date
 								   {% elif day == 0 %}
 									empty
