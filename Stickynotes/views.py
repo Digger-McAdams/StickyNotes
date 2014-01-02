@@ -42,6 +42,7 @@ def month(request,year=datetime.now().year,month=datetime.now().month,button=Non
 		lst[week].append((day,current))
 		if len(lst[week]) ==7:
 			lst.append([])
-			week+=1	
+			week+=1
+	print(lst)	
 	context_dict['month_days']=lst
 	return render_to_response("Stickynotes/month.html",context_dict,context)			
