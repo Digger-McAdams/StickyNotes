@@ -9,7 +9,7 @@ month_name="Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec"
 month_name=month_name.split()
 def index(request):
 	return HttpResponse("Test")
-def month(request,year,month,button=None):
+def month(request,year=datetime.now().year,month=datetime.now().month,button=None):
 	context=RequestContext(request)
 	context_dict={}
 	year=int(year)
@@ -35,10 +35,11 @@ def month(request,year,month,button=None):
 	week=0
 	for day in month_days:
 		current=False
-		lst[week].append((day))
 		if day:
 			if day==current_day and current_month==month and current_year==year:
 				current=True
+
+		lst[week].append((day,current))
 		if len(lst[week]) ==7:
 			lst.append([])
 			week+=1	

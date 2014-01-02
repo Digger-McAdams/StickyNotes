@@ -23,15 +23,18 @@
 				<tbody>
 					{% for week in month_days %}
 						<tr>
-						{% for day in week %}
+						{% for day, current in week %}
 						
-							<td class="{%if day == 19 %}
-									test date
-								   {% elif day == 0 %}
-									empty
-								   {% else %}
-									date
-								   {% endif %}">
+							<td class={%if day != 0 and not current %}
+									 "date"
+								   {% endif %}
+								   {%if day != 0 and current %}
+									"current"	
+								   {% endif %}
+								   {% if day == 0 %}
+									"empty"
+								   {% endif %}
+										>
 								{% if day != 0 %}
 									{{day}}
 								{% endif %} 
