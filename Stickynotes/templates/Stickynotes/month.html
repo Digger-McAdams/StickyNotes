@@ -3,11 +3,11 @@
 	<div id="calendar">
 		<div id="calheader">
 			<center>	
-				<a href="#" class="button">Prev</a>
-				{{month}}-{{year}}
-				<a href="#" class="button">Next</a>
+				<a href="/calendar/month/{{year}}/{{month}}/prev" class="button">prev</a>
+				{{month_spell}}-{{year}}
+				<a href="/calendar/month/{{year}}/{{month}}/next" class="button">Next</a>
+				<br />
 			</center>
-			
 		</div>
 		<div id="calendar_month">
 			<table width="90%">
@@ -34,7 +34,8 @@
 								   {% endif %}">
 								{% if day != 0 %}
 									{{day}}
-								{% endif %}
+								{% endif %} 
+								
 							</td>
 						{% endfor %}
 						</tr>
