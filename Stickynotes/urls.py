@@ -6,4 +6,5 @@ urlpatterns=patterns('',
 	url(r'^month/$',views.month,name='month'),
 	url(r'^month/(\d+)/(\d+)/$', views.month,name='month'),
 	url(r'^month/(\d+)/(\d+)/(prev|next)/$',views.month,name='month'),
+	url(r'^add_entry/$',views.add_entry,name='add_entry'),
 )

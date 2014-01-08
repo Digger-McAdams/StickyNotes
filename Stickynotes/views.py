@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from datetime import date,datetime,timedelta
+from Stickynotes.forms import EntryForm
 import calendar
 
 month_name="Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec"
@@ -46,3 +47,15 @@ def month(request,year=datetime.now().year,month=datetime.now().month,button=Non
 	print(lst)	
 	context_dict['month_days']=lst
 	return render_to_response("Stickynotes/month.html",context_dict,context)			
+def add_entry(request):
+	context=RequestContext(request)
+	if request.method=='POST':
+		form=EntryForm(request.POST)
+		if form.is_valid():
+			form.save(commit=True)
+			return index(request)
+		else:
+			print form.errors
+	else:
+		form=EntryForm()
+	return render_to_response('Stickynotes/add_entry.html',{'form':form},context)
