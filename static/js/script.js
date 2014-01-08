@@ -17,7 +17,7 @@ function unhover(e){
 		e.style.color='black';
 	}
 	else if(e.className=="current"){
-		e.style.backgroundColor="yellow";	
-		e.style.color="red";
+		e.style.backgroundColor="orange";	
+		e.style.color="black";
 	}
 }

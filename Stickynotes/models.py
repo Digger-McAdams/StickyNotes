@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 class Entry(models.Model):
 	message=models.CharField(max_length=40)
 	created=models.DateTimeField(auto_now_add=True)
-	day=models.DateField(blank=True)
+	date=models.DateField(blank=True)
 	completed=models.BooleanField(default=False)
 	priority_choices=(
 		(1,'Low'),

@@ -1,8 +1,8 @@
 {% extends 'Stickynotes/base.html' %}
 {%block body_block %}
-	<div class="hero-unit">
+	<div >
 		<div class="container">
-			<form  class="span6"id="entry_form" method="post" action="/calendar/add_entry/">
+			<form  class="span12"id="entry_form" method="post" action="/calendar/add_entry/">
 				{% csrf_token %}
 
 				{% for hidden in form.hidden_fields %}
@@ -10,8 +10,9 @@
 				{% endfor %}
 
 				{% for field in form.visible_fields %}
+					
 					{{field.errors}}
-					{{field.help_text}}<br/>
+					{{field.help_text}}</br>
 					{{field}}</br>
 				{% endfor %}
 				<button class="btn btn-primary" type="submit" name="submit" value="Add Entry">Add Entry</button>

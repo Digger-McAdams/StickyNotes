@@ -27,10 +27,14 @@
 				<tbody>
 					{% for week in month_days %}
 						<tr>
-						{% for day, current in week %}
+						{% for day, current,entries in week %}
 						
 							<td onMouseOver="hover(this);" onMouseOut="unhover(this);" class={%if day != 0 and not current %}
-									 "date"
+									 "date
+									 {% if entries %}
+										note	
+									 {% endif %}
+									 "
 								   {% endif %}
 								   {%if day != 0 and current %}
 									"current"	
@@ -38,9 +42,20 @@
 								   {% if day == 0 %}
 									"empty"
 								   {% endif %}
-										>
+							>
 								{% if day != 0 %}
-									{{day}}
+									{{day}}<br/>
+									{% if entries %}
+										{% for e in entries %}
+										<p style={% if e.priority == 1 %}"color:green;"
+											 {% elif e.priority == 2 %}"color:yellow;"
+											 {% else %} "color:red;"
+											 {% endif %}
+										>
+											{{e.message}}
+										</p>
+										{% endfor %}
+									{% endif %}
 								{% endif %} 
 							</td>
 						{% endfor %}

@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.template import RequestContext
 from django.shortcuts import render_to_response,redirect
 from datetime import date,datetime,timedelta
+from Stickynotes.models import Entry
 from Stickynotes.forms import EntryForm
 import calendar
 
@@ -36,11 +37,13 @@ def month(request,year=datetime.now().year,month=datetime.now().month,button=Non
 	week=0
 	for day in month_days:
 		current=False
+		entries=False
 		if day:
+			entries=Entry.objects.filter(date__year=year,date__month=month,date__day=day)
 			if day==current_day and current_month==month and current_year==year:
 				current=True
 
-		lst[week].append((day,current))
+		lst[week].append((day,current,entries))
 		if len(lst[week]) ==7:
 			lst.append([])
 			week+=1
