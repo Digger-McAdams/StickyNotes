@@ -36,12 +36,6 @@ th
 	background-color:#222222;
 	vertical-align:top;
 }
-.bottom-bar
-{
-	width:100%;
-	margin-bottom:0px;
-	color:#FFFFFF;
-}
 #calendar
 {
 	padding-bottom:5px;
@@ -50,10 +44,6 @@ th
 {
 	color:red;
 	font-size:250%;
-	padding:25px;
+	padding-bottom:13px;
 }
-#myname
-{
-	padding-left:15px;
-	padding-top:10px;
-}
+

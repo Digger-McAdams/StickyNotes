@@ -1,7 +1,7 @@
 # Create your views here.
 from django.http import HttpResponse
 from django.template import RequestContext
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response,redirect
 from datetime import date,datetime,timedelta
 from Stickynotes.forms import EntryForm
 import calendar
@@ -53,7 +53,7 @@ def add_entry(request):
 		form=EntryForm(request.POST)
 		if form.is_valid():
 			form.save(commit=True)
-			return index(request)
+			return redirect('/calendar/month')
 		else:
 			print form.errors
 	else:
