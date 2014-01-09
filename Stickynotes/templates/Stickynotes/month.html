@@ -2,15 +2,11 @@
 {% block body_block %}
 	<div id="calendar">
 		<div id="calheader">
-			<center>	
-				<button class="btn btn-primary btn-large" >
-				<a href="/calendar/month/{{year}}/{{month}}/prev" class="button"></a>Prev
-				</button>
-				{{month_spell}}-{{year}}
-				<button class="btn btn-primary btn-large">
-					<a href="/calendar/month/{{year}}/{{month}}/next" class="button"></a>Next
-				</button>
-				<br />
+			<center>
+					<a href="/calendar/month/{{year}}/{{month}}/prev/">Prev</a>
+						{{month_spell}}-{{year}}
+					<a href="/calendar/month/{{year}}/{{month}}/next/">Next</a><br/><br/>
+					<a href="/calendar/add_entry/">Add Entry</a>
 			</center>
 		</div>
 		<div id="calendar_month">
@@ -30,11 +26,12 @@
 						{% for day, current,entries in week %}
 						
 							<td onMouseOver="hover(this);" onMouseOut="unhover(this);" class={%if day != 0 and not current %}
-									 "date
 									 {% if entries %}
-										note	
+										"date note"
+									 {% else %}
+										"date"	 
 									 {% endif %}
-									 "
+									 
 								   {% endif %}
 								   {%if day != 0 and current %}
 									"current"	

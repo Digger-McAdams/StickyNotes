@@ -23,7 +23,11 @@ th
 }
 .note
 {
+	height:162px;
 	background-color:#00FFFF;
+	color:black;
+	border:1px solid black;
+	vertical-align:top;
 }
 .current
 {
@@ -42,12 +46,28 @@ th
 }
 #calendar
 {
-	padding-bottom:5px;
+	padding-bottom:-10px;
 }	
 #calheader
 {
 	color:red;
 	font-size:250%;
-	padding-bottom:13px;
+	height:100px;
 }
-
+#prev
+{
+	position:relative;
+	left:-125px;
+	top:-90px;
+}
+#next
+{
+	position:relative;
+	top:-25px;
+	left:130px;
+}
+#monthlabel
+{
+	position:relative;
+	top:10px;
+}
