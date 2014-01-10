@@ -25,7 +25,7 @@
 						<tr>
 						{% for day, current,entries in week %}
 						
-							<td onMouseOver="hover(this);" onMouseOut="unhover(this);" class={%if day != 0 and not current %}
+							<td class={%if day != 0 and not current %}
 									 {% if entries %}
 										"date note"
 									 {% else %}
@@ -44,13 +44,12 @@
 									{{day}}<br/>
 									{% if entries %}
 										{% for e in entries %}
-										<p style={% if e.priority == 1 %}"color:green;"
-											 {% elif e.priority == 2 %}"color:yellow;"
-											 {% else %} "color:red;"
-											 {% endif %}
-										>
-											{{e.message}}
-										</p>
+											<input type="checkbox" name="Entry" value="{{e.id}}" e_id="{{e.id}}" {% if e.completed %} checked{% endif %} ><font color={% if e.priority == 1%} "green"
+ {% elif e.priority == 2 %} "yellow"
+ {% elif e.priority == 3 %} "red"
+ {% endif %}
+  >{% if e.completed %}<strike>{{e.message}}</strike>{% else %}{{e.message}} {% endif %}
+</font><br/>
 										{% endfor %}
 									{% endif %}
 								{% endif %} 

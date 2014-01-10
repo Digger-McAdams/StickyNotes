@@ -47,7 +47,6 @@ def month(request,year=datetime.now().year,month=datetime.now().month,button=Non
 		if len(lst[week]) ==7:
 			lst.append([])
 			week+=1
-	print(lst)	
 	context_dict['month_days']=lst
 	return render_to_response("Stickynotes/month.html",context_dict,context)			
 def add_entry(request):
@@ -62,3 +61,14 @@ def add_entry(request):
 	else:
 		form=EntryForm()
 	return render_to_response('Stickynotes/add_entry.html',{'form':form},context)
+def completed_entry(request):
+	context=RequestContext(request)
+	entry_id=None
+	if request.method=='GET':
+		entry_id=request.GET['entry_id']
+	e=Entry.objects.get(id=int(entry_id))
+	if e:
+		e.completed=True
+		print(e.completed)
+		e.save()
+	return HttpResponse()
