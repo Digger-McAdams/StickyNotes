@@ -44,11 +44,11 @@
 									{{day}}<br/>
 									{% if entries %}
 										{% for e in entries %}
-											<input type="checkbox" name="Entry" value="{{e.id}}" e_id="{{e.id}}" {% if e.completed %} checked{% endif %} ><font color={% if e.priority == 1%} "green"
+											<input type="checkbox" name="Entry" value="{{e.id}}" e_id="{{e.id}}" {% if e.completed %} checked{% endif %} ><font e_id="{{e.id}}" color={% if e.priority == 1%} "green"
  {% elif e.priority == 2 %} "yellow"
  {% elif e.priority == 3 %} "red"
  {% endif %}
-  >{% if e.completed %}<strike>{{e.message}}</strike>    </font><button class="btn-small delete"  e_id="{{e.id}}">Delete</button>{% else %}{{e.message}}  </font><button class="btn-small delete" e_id="{{e.id}}">Delete</button> {% endif %}
+  >{% if e.completed %}<strike>{{e.message}}</strike>    </font>{% else %}{{e.message}}  </font> {% endif %}
 <br/>
 										{% endfor %}
 									{% endif %}
