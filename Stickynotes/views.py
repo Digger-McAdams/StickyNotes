@@ -72,3 +72,12 @@ def completed_entry(request):
 		print(e.completed)
 		e.save()
 	return HttpResponse()
+def delete_entry(request):
+	context=RequestContext(request)
+	entry_id=None
+	if request.method=='GET':
+		entry_id=request.GET['entry_id']
+	e=Entry.objects.get(id=int(entry_id))
+	if e:
+		e.delete()
+	return HttpResponse()

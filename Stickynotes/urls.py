@@ -7,7 +7,6 @@ urlpatterns=patterns('',
 	url(r'^month/(\d+)/(\d+)/$', views.month,name='month'),
 	url(r'^month/(\d+)/(\d+)/(prev|next)/$',views.month,name='month'),
 	url(r'^add_entry/$',views.add_entry,name='add_entry'),
-	url(r'^add_entry/(\d+)/(\d+)/(\d+)/$',views.add_entry,name='add_entry'),
-	
 	url(r'^completed_entry/$',views.completed_entry,name='completed_entry'),
+	url(r'^delete_entry/$',views.delete_entry,name="delete_entry"),
 )

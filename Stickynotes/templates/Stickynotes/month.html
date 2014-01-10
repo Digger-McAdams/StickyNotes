@@ -48,8 +48,8 @@
  {% elif e.priority == 2 %} "yellow"
  {% elif e.priority == 3 %} "red"
  {% endif %}
-  >{% if e.completed %}<strike>{{e.message}}</strike>{% else %}{{e.message}} {% endif %}
-</font><br/>
+  >{% if e.completed %}<strike>{{e.message}}</strike>    </font><button class="btn-small delete"  e_id="{{e.id}}">Delete</button>{% else %}{{e.message}}  </font><button class="btn-small delete" e_id="{{e.id}}">Delete</button> {% endif %}
+<br/>
 										{% endfor %}
 									{% endif %}
 								{% endif %} 
