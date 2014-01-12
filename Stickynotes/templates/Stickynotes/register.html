@@ -1,0 +1,17 @@
+{% extends 'Stickynotes/base.html' %}
+{%block body_block %}
+	<div >
+		{% if registered %}
+			<strong>Thank you for registering!</strong>
+			<a href="/calendar/month"></a><br />
+		{% else %}
+			<div class="container">
+				<form  class="span12"id="user_form" method="post" action="/calendar/register/">
+					{% csrf_token %}
+					{{user_form.as_p}}
+					<input type="submit" name="submit" value="Register"/>
+				</form>
+			</div>
+		{% endif %}
+	</div>
+{% endblock %}

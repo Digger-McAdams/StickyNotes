@@ -8,12 +8,11 @@ $(document).ready(function(){
 		a.html(b);
 		var entryid;
 		entryid=$(this).attr("e_id");	
-		console.log(entryid);
 		$.get('/calendar/completed_entry/',{entry_id:entryid}, function(data){
 			console.log("got here");
 		});
 	});
-	$(".delete").click(function(){
+	$("font").click(function(){
 		console.log("pressed me");
 		var answer=confirm("Are you sure want to delete this entry?");
 		entryid=$(this).attr("e_id");
@@ -22,7 +21,6 @@ $(document).ready(function(){
 			$.get('/calendar/delete_entry/',{entry_id:entryid},function(data){
 				console.log("deleting");
 			});
-			$(this).prev().prev().hide();
 			$(this).prev().hide();
 			$(this).hide();
 			$(this).next().slideUp("fast");	

@@ -12,3 +12,4 @@ class Entry(models.Model):
 		(3,'High'),
 	)
 	priority=models.IntegerField(choices=priority_choices,default=1)
+	user=models.ForeignKey(User)
