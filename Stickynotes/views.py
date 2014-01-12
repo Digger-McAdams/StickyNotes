@@ -2,7 +2,7 @@
 from django.http import HttpResponse,HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render_to_response,redirect
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from datetime import date,datetime,timedelta
@@ -45,7 +45,7 @@ def month(request,year=datetime.now().year,month=datetime.now().month,button=Non
 		current=False
 		entries=False
 		if day:
-			entries=Entry.objects.filter(date__year=year,date__month=month,date__day=day)
+			entries=Entry.objects.filter(date__year=year,date__month=month,date__day=day,user=request.user)
 			if day==current_day and current_month==month and current_year==year:
 				current=True
 
@@ -125,4 +125,8 @@ def user_login(request):
 			return HttpResponse("Invalid login details supplied.")
 	else:
 		return render_to_response('Stickynotes/login.html',{},context)
-	
+@login_required
+def user_logout(request):
+	print("got here")
+	logout(request)
+	return HttpResponseRedirect("/calendar/month/2014/2")	
